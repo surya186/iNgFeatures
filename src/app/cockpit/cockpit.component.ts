@@ -21,14 +21,14 @@ export class CockpitComponent implements OnInit {
   ngOnInit() {
   }
 
-  onAddServer(nameInput) {
+  onAddServer(nameInput : HTMLInputElement) {
     this.serverCreated.emit({
       severName: nameInput.value,
       serverContent: this.newServerContent
     });
   }
-
-  onAddBlueprint(nameInput) {
+//There is a mistake in the second commit message these are local references not variables
+  onAddBlueprint(nameInput :HTMLInputElement) {
     this.bluePrintCreated.emit({
       severName: nameInput.value,
       serverContent: this.newServerContent
