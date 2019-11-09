@@ -11,10 +11,9 @@ export class CockpitComponent implements OnInit {
   @Output() serverCreated = new EventEmitter<{ severName: string, serverContent: string }>();
   @Output() bluePrintCreated = new EventEmitter<{ severName: string, serverContent: string }>();
 
-  //newServerName = '';
-  newServerContent = '';
+  
+  @ViewChild('serverContentInput', { static: true }) serverContentInput : ElementRef;
 
-  //@ViewChild('serverContentInput', { static: true }) serverContentInput : ElementRef;
 
   constructor() { }
 
@@ -24,14 +23,14 @@ export class CockpitComponent implements OnInit {
   onAddServer(nameInput : HTMLInputElement) {
     this.serverCreated.emit({
       severName: nameInput.value,
-      serverContent: this.newServerContent
+      serverContent: this.serverContentInput.nativeElement.value
     });
   }
-//There is a mistake in the second commit message these are local references not variables
+
   onAddBlueprint(nameInput :HTMLInputElement) {
     this.bluePrintCreated.emit({
       severName: nameInput.value,
-      serverContent: this.newServerContent
+      serverContent: this.serverContentInput.nativeElement.value
     });
   }
 }
